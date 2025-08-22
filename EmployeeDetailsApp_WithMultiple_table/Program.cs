@@ -1,3 +1,6 @@
+using EmployeeDetailsApp_WithMultiple_table.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace EmployeeDetailsApp_WithMultiple_table
 {
     public class Program
@@ -8,6 +11,11 @@ namespace EmployeeDetailsApp_WithMultiple_table
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(option =>
+            {
+                option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 
