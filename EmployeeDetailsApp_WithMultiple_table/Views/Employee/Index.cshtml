@@ -1,4 +1,4 @@
-﻿@model List<EmployeeDetailsApp_WithMultiple_table.Models.Employee>
+﻿@model EmployeeDetailsApp_WithMultiple_table.Models.ViewModel.ViewModel
 <h1>heading</h1>
 	<div class="container">
 		<div class="row">
@@ -18,7 +18,7 @@
 				</thead>
 				
 				<tbody>
-					@foreach (var employee in Model)
+					@foreach (var employee in Model.Employees)
 					{
 						<tr>
 							<td>@employee.EmployeeId</td>
@@ -27,7 +27,7 @@
 							<td>@employee.Gender</td>
 
 							<td>@employee.Email</td>
-							<td>@employee.Department?.DepartmentName</td>
+							<td>@employee.Department.DepartmentName </td>
 
 
 						</tr>
